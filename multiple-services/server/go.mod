@@ -1,9 +1,9 @@
-module github.com/lhj8390/grpc-example/user-service/server
+module github.com/lhj8390/grpc-example/multiple-services/server
 
 go 1.20
 
 require (
-	github.com/lhj8390/grpc-example/user-service/service v0.0.0-00010101000000-000000000000
+	github.com/lhj8390/grpc-example/multiple-services/service v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.54.0
 )
 
@@ -16,4 +16,5 @@ require (
 	google.golang.org/protobuf v1.30.0 // indirect
 )
 
-replace github.com/lhj8390/grpc-example/user-service/service => ../service
+replace github.com/lhj8390/grpc-example/multiple-services/service => ../service
+

@@ -1,4 +1,4 @@
-module github.com/lhj8390/user-service/client
+module github.com/lhj8390/grpc-example/user-service/client
 
 go 1.20
 
