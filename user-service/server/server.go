@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"errors"
 	users "github.com/lhj8390/grpc-example/user-service/service"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"log"
 	"net"
 	"os"
@@ -27,7 +28,10 @@ func (s *UserService) GetUser(
 
 	components := strings.Split(in.Email, "@")
 	if len(components) != 2 {
-		return nil, errors.New("invalid email address")
+		return nil, status.Error(
+			codes.InvalidArgument,
+			"Invalid email address specified",
+		)
 	}
 
 	// 더미 User 객체 생성

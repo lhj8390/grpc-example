@@ -5,6 +5,8 @@ import (
 	"fmt"
 	users "github.com/lhj8390/grpc-example/user-service/service"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/encoding/protojson"
 	"log"
 	"os"
@@ -67,9 +69,11 @@ func main() {
 		c,
 		u,
 	)
-	if err != nil {
-		log.Fatal(err)
+	s := status.Convert(err)
+	if s.Code() != codes.OK {
+		log.Fatalf("Request failed: %v - %v\n", s.Code(), s.Message())
 	}
+
 	data, err := getUserResponseJson(result)
 	if err != nil {
 		log.Fatal(err)
