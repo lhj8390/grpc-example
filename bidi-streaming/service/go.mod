@@ -1,4 +1,4 @@
-module github.com/lhj8390/grpc-example/multiple-services/service
+module github.com/lhj8390/grpc-example/bidi-streaming/service
 
 go 1.20
 
